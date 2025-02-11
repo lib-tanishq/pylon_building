@@ -12,4 +12,12 @@ do_install() {
     cd ${WORKDIR}/include
     find . -type d -exec install -d ${D}${includedir}/{} \;
     find . -type f -exec install -m 0644 {} ${D}${includedir}/{} \;
+
+    cd ${WORKDIR}/lib
+    find . -type d -exec install -d ${D}${libdir}/{} \;
+    find . -type f -exec install -m 0644 {} ${D}${libdir}/{} \;
 }
+
+INSANE_SKIP_${PN} += "already-stripped"
+
+FILES_${PN} += " ${libdir}/"
