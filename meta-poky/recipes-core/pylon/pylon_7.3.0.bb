@@ -15,9 +15,9 @@ do_install() {
 
     cd ${WORKDIR}/lib
     find . -type d -exec install -d ${D}${libdir}/{} \;
-    cp -rP ${WORKDIR}/lib/* ${D}${libdir}/
+    cp -rP ${WORKDIR}/lib/*.so* ${D}${libdir}/
     cd ${D}${libdir}
-    rm -rf Qt pylonviewer
+    rm -rf Qt pylonviewer pylondataprocessingplugins gentlproducer
 
     install -d ${D}${libdir}/cmake/
     cp -r ${WORKDIR}/share/pylon/cmake/* ${D}${libdir}/cmake/
