@@ -20,4 +20,5 @@ do_install() {
 
 INSANE_SKIP_${PN} += "already-stripped"
 
-FILES_${PN} += " ${libdir}/"
+FILES_${PN} += " ${libdir}/ ${includedir}/"
+FILES_${PN}-dev = " "
