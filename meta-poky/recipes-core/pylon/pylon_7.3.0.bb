@@ -7,3 +7,9 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/share/pylon/licenses/License.txt;md5=71fd6
                     file://${WORKDIR}/share/pylon/licenses/pylon_Third-Party_Licenses.txt;md5=6b31a3df23f531635229ec2011955b89"
 
 SRC_URI = "file://pylon-7.3.0.27189_linux-aarch64.tar.gz"
+
+do_install() {
+    # cp contents from include to image
+    install -d ${D}${includedir}/pylon
+    cp -r ${WORKDIR}/include/* ${D}${includedir}/pylon/
+}
