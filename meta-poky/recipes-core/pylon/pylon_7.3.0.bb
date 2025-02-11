@@ -15,9 +15,15 @@ do_install() {
 
     cd ${WORKDIR}/lib
     find . -type d -exec install -d ${D}${libdir}/{} \;
-    find . -type f -exec install -m 0644 {} ${D}${libdir}/{} \;
+    cp -rP ${WORKDIR}/lib/* ${D}${libdir}/
+    cd ${D}${libdir}
+    rm -rf Qt pylonviewer
+
+    install -d ${D}${libdir}/cmake/
+    cp -r ${WORKDIR}/share/pylon/cmake/* ${D}${libdir}/cmake/
 }
 
+INSANE_SKIP_${PN} += "dev-so"
 INSANE_SKIP_${PN} += "already-stripped"
 
 FILES_${PN} += " ${libdir}/ ${includedir}/"
