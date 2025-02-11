@@ -19,12 +19,12 @@ do_install() {
     cd ${D}${libdir}
     rm -rf Qt pylonviewer pylondataprocessingplugins gentlproducer
 
-    install -d ${D}${libdir}/cmake/
-    cp -r ${WORKDIR}/share/pylon/cmake/* ${D}${libdir}/cmake/
+    install -d ${D}${libdir}/cmake/pylon/
+    cp -r ${WORKDIR}/share/pylon/cmake/* ${D}${libdir}/cmake/pylon/
 }
 
 INSANE_SKIP_${PN} += "dev-so"
 INSANE_SKIP_${PN} += "already-stripped"
 
-FILES_${PN} += " ${libdir}/*.so*"
+FILES_${PN} += " ${libdir}/"
 FILES_${PN}-dev = " ${includedir}/ ${libdir}/cmake"
