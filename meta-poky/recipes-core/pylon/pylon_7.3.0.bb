@@ -26,5 +26,5 @@ do_install() {
 INSANE_SKIP_${PN} += "dev-so"
 INSANE_SKIP_${PN} += "already-stripped"
 
-FILES_${PN} += " ${libdir}/ ${includedir}/"
-FILES_${PN}-dev = " "
+FILES_${PN} += " ${libdir}/*.so*"
+FILES_${PN}-dev = " ${includedir}/ ${libdir}/cmake"
